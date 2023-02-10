@@ -1,29 +1,7 @@
 
 
 # Microservices Deployment
-## Contents
-- [Microservices Deployment](#microservices-deployment)
-  - [Contents](#contents)
-  - [Students](#students)
-  - [Introduction](#introduction)
-  - [Microservices Generation](#microservices-generation)
-  - [Kubernetes Deployment](#kubernetes-deployment)
-    - [1. Pushing the images to Docker Hub](#1-pushing-the-images-to-docker-hub)
-    - [2. Cluster creation](#2-cluster-creation)
-    - [3. Autoscaling definition](#3-autoscaling-definition)
-    - [4. Services Deployment](#4-services-deployment)
-  - [Load injection and monitoring](#load-injection-and-monitoring)
-    - [1. Load injection](#1-load-injection)
-    - [2. Monitoring](#2-monitoring)
-  - [Conclusion](#conclusion)
-- [Possible improvements for the tutorial](#possible-improvements-for-the-tutorial)
-  - [Kubernetes Deployment](#kubernetes-deployment-1)
-    - [1. Pushing the images to Docker Hub](#1-pushing-the-images-to-docker-hub-1)
-    - [2. Cluster creation](#2-cluster-creation-1)
-    - [3. Autoscaling definition](#3-autoscaling-definition-1)
-    - [4. Services deployment](#4-services-deployment-1)
-    - [5. Load injection](#5-load-injection)
-    - [6. Monitoring](#6-monitoring)
+
 
 
 ## Students
@@ -104,6 +82,8 @@ Fig. 4 - Response times for 500req/s test.
 </p>
 
 However, even with autoprovisioning enabled (which enables autoscaling), the gateway's performance doesn't seem to have improved during the load injection. From this, we infer that autoscaling was done at most in a low scale, but we could not identify why.
+
+The full Gatling reports can be accessed [here](https://github.com/phpons/microservices-JHipster/tree/master/gatling_reports).
 
 ### 2. Monitoring
 We could observe the cluster's resource usage spiking when the tests were performed. The screenshots were taken hours after the tests to guarantee that the spike was not a regular occurrence without the tests being executed.
