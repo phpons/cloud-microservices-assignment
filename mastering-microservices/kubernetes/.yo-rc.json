@@ -1,0 +1,17 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "invoice", "notification", "productorder"],
+    "clusteredDbApps": ["notification"],
+    "directoryPath": "../",
+    "dockerPushCommand": "docker push",
+    "dockerRepositoryName": "rlycoolidiswear",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "NzM1M2JjYWVhOGNiYzE0NDRlNTRmMGM3ZmYzMjk0NTgzNTlhYjQzZDkyZWIzYzZmY2YwZTlkOGM4YzI0NDI4ZTViZGU3YWY0NTM3MzYzYTQ5OWExNzk3N2M3NGExZTU1NzcwOQ==",
+    "kubernetesNamespace": "store",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "monitoring": "prometheus",
+    "serviceDiscoveryType": "eureka"
+  }
+}

@@ -1,0 +1,21 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: rlycoolidiswear/gateway
+      context: ../gateway
+      jib: {}
+    - image: rlycoolidiswear/invoice
+      context: ../invoice
+      jib: {}
+    - image: rlycoolidiswear/notification
+      context: ../notification
+      jib: {}
+    - image: rlycoolidiswear/productorder
+      context: ../productorder
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest"
+deploy:
+  kustomize: {}
