@@ -48,7 +48,7 @@ Building the Docker images with the original command in the tutorial *"./gradlew
 
 ## Kubernetes Deployment
 ### 1. Pushing the images to Docker Hub
-All images were successfully pushed by the members of the group.
+All images were successfully pushed to Docker Hub by the members of the group.
 
 ### 2. Cluster creation
 We used the following command to create the cluster:
@@ -69,8 +69,6 @@ gcloud container clusters update $CLUSTER_NAME \
     --max-cpu 24 \
     --max-memory 64
 ```
-
-We strongly recommend updating the tutorial with the expected parameters of the cluster. Terraform would be a good option here.
 
 ### 4. Services Deployment
 All services and monitoring stack were deployed to GCP with the command:
@@ -129,9 +127,9 @@ Monitoring the effects of load testing was done on the cluster level, future wor
 # Possible improvements for the tutorial
 ## Kubernetes Deployment
 ### 1. Pushing the images to Docker Hub
-Instead of using "masteringmicroservice" as values in the code samples, I suggest replacing it by *YOUR_DOCKERHUB_ID_HERE*. 
+Instead of using "masteringmicroservice" as values in the code samples, it could be replaced by *YOUR_DOCKERHUB_ID_HERE*. 
 
-If the student gets confused sets the REPO variable as "materingmicroservice", they will not be able to successfully push the images.
+This makes it clear for the student that the REPO variable should not be "materingmicroservice", which would result for them in a "access denied" error when trying to push to Docker Hub.
 
 Proposed replacements:
 ```
@@ -153,21 +151,20 @@ REPO=YOUR_DOCKERHUB_ID_HERE
 ```
 
 ### 2. Cluster creation
-We strongly recommend updating the tutorial with the expected parameters and commands for the creation of the cluster. Terraform would be a good option here.
-
 In our case, the standard cluster was not able to handle the whole deployment, so we had to enable autoprovisioning before having a working version of the stack.
 
+Perhaps Terraform could be used to create a standard working cluster deployment so the tutorial is guaranteed to work for all students.
 
 ![Gateway pods before enabling autoprovisioning.](img/error_unschedulable_pod.jfif "Gateway pods before enabling autoprovisioning")  
 <p align = "center">
-Fig. 3 - Gateway pods before enabling autoprovisioning.
+Fig. 6 - Gateway pods before enabling autoprovisioning.
 </p>
 
 ### 3. Autoscaling definition
-Some guidelines on what kind of autoscaling to set could be good to let the student focus on the effects of autoscaling when running the load injection.
+Some guidelines on what kind of autoscaling to set could be good to let the student focus on the effects of autoscaling when running the load injection, instead of first focusing on how to set up autoscaling without being sure of its correctness.
 
 ### 4. Services deployment
-The standard *kubectl-apply.sh* produces this error in some of the deployments:
+The standard *kubectl-apply.sh* produces this error for some of the deployments:
 ```
 error: resource mapping not found for name: "gateway" namespace: "store" from "gateway-k8s/gateway-prometheus-sm.yml": no matches for kind "ServiceMonitor" in version "monitoring.coreos.com/v1"
 ```
@@ -191,4 +188,6 @@ A clear, independent, section on how to properly load inject with Gatling in GKE
 Although we managed to run load injection, such a section would have saved the group a lot of time instead of having to rely on external resources for what should be a simple task.
 
 ### 6. Monitoring
-The Grafana dashboard's credentials were not admin / admin nor the one seen in Grafana's .yml deployment. The username is jhipster; to change Grafana's password, we had to manually exec into the pod.
+The Grafana dashboard's credentials were not admin / admin. They were also not the ones seen in the .yml deployment for some reason.
+
+By manually *exec*ing into the pods, we found out that the username was jhipster and we could manually change Grafana's password in order to log in.
