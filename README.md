@@ -37,7 +37,7 @@ Guilherme Akira ALVES DOS SANTOS - Guilherme-Akira.Alves-Dos-Santos@grenoble-inp
 ## Introduction
 This report describes the steps taken and challenges faced to deploy the store microservices on Google Kubernetes Engine (GKE), following the tutorial provided by the professor Didier Donsez.
 
-We will include some of the errors we found on the way, in hopes that they can be used to improve the assignment for future students.
+We have included a section in the end of the report with some of the errors we found on the way, in hopes that they can be used to improve the assignment for future students.
 
 ## Microservices Generation
 All microservices were successfully generated with JHipster, and their respective images generated. 
